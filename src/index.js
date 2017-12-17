@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/app.css';
 import App from './components/app/App';
+
+import 'bootstrap/dist/css/bootstrap.css';
+import './styles/app.css';
+
 import registerServiceWorker from './registerServiceWorker';
 
 let apiUrl = 'https://api.openweathermap.org/data/2.5/weather';

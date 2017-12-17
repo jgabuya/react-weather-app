@@ -1,12 +1,13 @@
 import React from 'react';
 import axios from 'axios';
+import { Alert, InputGroup, InputGroupButton, Input, Button } from 'reactstrap';
 
 class Main extends React.Component {
     constructor() {
         super();
 
         this.state = {
-            location: 'Cebu, Philippines',
+            location: '',
             weatherData: {},
             errorMessage: ''
         }
@@ -56,18 +57,30 @@ class Main extends React.Component {
 
     render() {
         return (
-            <form>
-                <input type="text" onChange={this.onLocationChange}/>
-                <button type="submit" onClick={this.onLocationSubmit}>Go</button>
-
-                <div>
-                    {this.state.errorMessage}
+            <div>
+                <div className={(( this.state.errorMessage.length == 0)? 'd-none ' : '') + 'row mb-3'}>
+                    <div className="col">
+                        <Alert color="warning">
+                            {this.state.errorMessage}
+                        </Alert>
+                    </div>
                 </div>
 
-                <div>
-                    {JSON.stringify(this.state.weatherData)}
+                <div className="row">
+                    <div className="col">
+                        <form>
+                            <InputGroup>
+                                <Input onChange={this.onLocationChange} placeholder="Enter your location" />
+                                <InputGroupButton><Button type="submit" onClick={this.onLocationSubmit}>Go!</Button></InputGroupButton>
+                            </InputGroup>
+
+                            <div>
+                                {JSON.stringify(this.state.weatherData)}
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </form>
+            </div>
         )
     }
 }
