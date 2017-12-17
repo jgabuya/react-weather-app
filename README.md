@@ -1,6 +1,6 @@
 # React Weather App
 
-Simple weather app build with [React](https://reactjs.org/)
+Simple weather app built with [React](https://reactjs.org/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
