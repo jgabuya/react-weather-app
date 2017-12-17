@@ -84,7 +84,7 @@ class Main extends React.Component {
                         <div className="col">
                             <div className="jumbotron">
                                 <img src={'http://openweathermap.org/img/w/' + this.state.weatherData.weather[0].icon + '.png'} alt={this.state.weatherData.weather[0].icon} />
-                                
+
                                 <h1 className="display-4">{this.state.weatherData.name}</h1>
 
                                 <p className="lead">
