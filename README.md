@@ -14,3 +14,7 @@ Weather API: https://openweathermap.org/api
 
 - Display weather data based on location input
 - Hourly forecast
+
+## Resources
+
+- [Weather Icons](https://openweathermap.org/weather-conditions)
