@@ -6,7 +6,7 @@ This is a simple weather app built with [React](https://reactjs.org/)
 
 ## Running
 
-Just run `yarn start` on the project root.
+Just run `yarn start` from the project root.
 
 ## Technical Details
 
