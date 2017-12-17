@@ -5,7 +5,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <Main />
+                <Main apiUrl={this.props.apiUrl} apiKey={this.props.apiKey} />
             </div>
         );
     }
