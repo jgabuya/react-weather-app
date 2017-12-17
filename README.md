@@ -10,7 +10,7 @@ Just run `yarn start` on the project root.
 
 ## Technical Details
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). Seriously, just head over to that link to browse its awesome docs.
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). Seriously, just head over there to browse its awesome docs.
 
 Weather API: https://openweathermap.org/api
 
