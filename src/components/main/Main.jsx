@@ -37,6 +37,7 @@ class Main extends React.Component {
 
             .catch(function (error) {
                 instance.setState({
+                    weatherData: {},
                     errorMessage: error.message
                 });
             });
