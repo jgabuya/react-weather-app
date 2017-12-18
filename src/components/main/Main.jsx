@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Form from '../form/Form';
 import Result from "../result/Result";
-import Error from "../result/Result";
+import Error from "../result/Error";
 import isEmpty from "lodash/isEmpty";
 
 class Main extends React.Component {
@@ -42,8 +42,10 @@ class Main extends React.Component {
             .catch(function (error) {
                 instance.setState({
                     weatherData: {},
-                    errorMessage: error.message
+                    errorMessage: `Weather info for "${instance.state.location}" not available.`
                 });
+
+                console.log(error);
             });
     }
 
@@ -60,19 +62,20 @@ class Main extends React.Component {
     }
 
     render() {
+        let display;
+
+        if (this.state.errorMessage.length > 0) {
+            display = <Error errorMessage={this.state.errorMessage} />;
+            console.log(this.state.errorMessage);
+        } else if (!isEmpty(this.state.weatherData)) {
+            display = <Result icon={this.state.weatherData.weather[0].icon} name={this.state.weatherData.name} description={this.state.weatherData.weather[0].main} temp={this.state.weatherData.main.temp} />;
+        }
+
         return (
             <div>
                 <Form onLocationChange={this.onLocationChange} onLocationSubmit={this.onLocationSubmit} />
 
-                {
-                    this.state.errorMessage.length &&
-                    <Error errorMessage={this.state.errorMessage} />
-                }
-
-                {
-                    !isEmpty(this.state.weatherData) &&
-                    <Result icon={this.state.weatherData.weather[0].icon} />
-                }
+                {display}
             </div>
         )
     }

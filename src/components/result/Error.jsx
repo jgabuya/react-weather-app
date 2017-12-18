@@ -7,7 +7,7 @@ class Error extends React.Component {
             <div className="row mb-3">
                 <div className="col">
                     <Alert color="warning">
-                        {this.prop.errorMessage}
+                        {this.props.errorMessage}
                     </Alert>
                 </div>
             </div>
