@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import { Alert, InputGroup, InputGroupButton, Input, Button } from 'reactstrap';
-import isEmpty from 'lodash/isEmpty';
+import Form from '../form/Form';
+import Result from "../result/Result";
+import Error from "../result/Result";
+import isEmpty from "lodash/isEmpty";
 
 class Main extends React.Component {
     constructor() {
@@ -60,41 +62,17 @@ class Main extends React.Component {
     render() {
         return (
             <div>
-                <div className={((this.state.errorMessage.length === 0)? 'd-none ' : '') + 'row mb-3'}>
-                    <div className="col">
-                        <Alert color="warning">
-                            {this.state.errorMessage}
-                        </Alert>
-                    </div>
-                </div>
+                <Form onLocationChange={this.onLocationChange} onLocationSubmit={this.onLocationSubmit} />
 
-                <div className="row mb-4">
-                    <div className="col">
-                        <form>
-                            <InputGroup>
-                                <Input onChange={this.onLocationChange} placeholder="Enter your location" />
-                                <InputGroupButton><Button type="submit" onClick={this.onLocationSubmit}>Go!</Button></InputGroupButton>
-                            </InputGroup>
-                        </form>
-                    </div>
-                </div>
-
-                {! isEmpty(this.state.weatherData) &&
-                    <div className={((isEmpty(this.state.weatherData))? 'd-none ' : '') + 'row'}>
-                        <div className="col">
-                            <div className="jumbotron">
-                                <img src={'http://openweathermap.org/img/w/' + this.state.weatherData.weather[0].icon + '.png'} alt={this.state.weatherData.weather[0].icon} />
-
-                                <h1 className="display-4">{this.state.weatherData.name}</h1>
-
-                                <p className="lead">
-                                    {this.state.weatherData.main.temp} &deg;C, {this.state.weatherData.weather[0].main}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                {
+                    this.state.errorMessage.length &&
+                    <Error errorMessage={this.state.errorMessage} />
                 }
 
+                {
+                    !isEmpty(this.state.weatherData) &&
+                    <Result icon={this.state.weatherData.weather[0].icon} />
+                }
             </div>
         )
     }
