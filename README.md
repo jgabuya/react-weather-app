@@ -4,9 +4,13 @@
 
 This is a simple weather app built with [React](https://reactjs.org/)
 
-## Running
+## Demo
 
-Just run `yarn start` from the project root.
+http://jgabuya-react-weather.surge.sh/
+
+## Running Locally
+
+Just run `yarn` then `yarn start` from the project root. Make sure you have the `create-react-app` module installed globally.
 
 ## Technical Details
 
