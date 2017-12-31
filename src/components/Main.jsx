@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import Form from '../form/Form';
-import Result from "../result/Result";
-import Error from "../result/Error";
+import Form from './Form';
+import Result from "./Result";
+import Error from "./Error";
 import isEmpty from "lodash/isEmpty";
 
 class Main extends React.Component {
